@@ -1,0 +1,28 @@
+[package]
+name = "phi_launcher"
+version = "0.1.0"
+edition = "2021"
+description = "Phi Launcher - a launcher for Phigros simulators (Phira / Phira-Firefly / phire / PhirLie)"
+authors = ["Phi Launcher"]
+
+[[bin]]
+name = "phi_launcher"
+path = "src/main.rs"
+
+[dependencies]
+eframe = { version = "0.29", default-features = false, features = ["glow", "default_fonts"] }
+egui = "0.29"
+egui_extras = { version = "0.29", features = ["image"] }
+image = { version = "0.25", default-features = false, features = ["png", "jpeg"] }
+reqwest = { version = "0.12", default-features = false, features = ["blocking", "json", "rustls-tls"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+rodio = { version = "0.19", default-features = false, features = ["vorbis"] }
+anyhow = "1"
+zip = { version = "2", default-features = false, features = ["deflate"] }
+open = "5"
+rfd = "0.15"
+
+[profile.release]
+opt-level = 3
+lto = "thin"
